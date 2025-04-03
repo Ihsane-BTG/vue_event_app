@@ -1,30 +1,33 @@
 <template>
-  <p>Simple text</p>
+  <div class="homepage5-body homepage7-body">
+    <img src="@/assets/img/bg/body-bg1.png" alt="" class="body-bg1" id="body-bg1" />
+    
+    <MainHeader />
+    
+    <main>
+      <HeroSection />
+      <WhyAttend />
+    </main>
+  </div>
 </template>
 
 <script>
+import MainHeader from '@/components/MainHeader.vue'
+import HeroSection from '@/components/HeroSection.vue'
+import WhyAttend from '@/components/WhyAttend.vue'
+
 export default {
+  components: {
+    MainHeader,
+    HeroSection,
+    WhyAttend
+  },
   data() {
     return {
-      activePages: 0,
-      pages: [
-        {
-          link: {text: 'home', url: 'index.html'},
-          pageTitle: 'Home Page',
-          content: 'This is home content.'
-        },
-        {
-          link: {text: 'about', url: 'about.html'},
-          pageTitle: 'About Page',
-          content: 'This is about content.'
-        },
-        {
-          link: {text: 'contact', url: 'contact.html'},
-          pageTitle: 'Contact Page',
-          content: 'This is contact content.'
-        }
-      ]
     }
+  },
+  mounted() {
+    // Initialize AOS and other plugins here if needed
   }
 }
 </script>
