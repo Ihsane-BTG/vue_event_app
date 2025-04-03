@@ -13,7 +13,7 @@
                     <li><router-link to="/">Home</router-link></li>
                     <li><router-link to="/about">About Event</router-link></li>
                     <li class="dropdown">
-                      <a href="#">Event Details <i class="fa-solid fa-angle-down"></i></a>
+                      <router-link to="#">Event Details <i class="fa-solid fa-angle-down"></i></router-link>
                       <ul class="dropdown-padding">
                         <li><router-link to="/event">Agenda</router-link></li>
                         <li><router-link to="/event-schedule">Speakers</router-link></li>
