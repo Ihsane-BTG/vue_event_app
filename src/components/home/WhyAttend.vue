@@ -17,7 +17,7 @@
                   <img src="@/assets/img/icons/about-icon1.svg" alt="">
                 </div>
                 <div class="text">
-                  <a href="#">Collaborating for Economic Impact</a>
+                  <router-link href="#">Collaborating for Economic Impact</router-link>
                   <div class="space12"></div>
                   <p>This event brings together economists, business leaders, policymakers, and innovators from around the globe.</p>
                 </div>
@@ -30,7 +30,7 @@
                   <img src="@/assets/img/icons/about-icon2.svg" alt="">
                 </div>
                 <div class="text">
-                  <a href="#">Where Ideas Shape the Economy</a>
+                  <router-link href="#">Where Ideas Shape the Economy</router-link>
                   <div class="space12"></div>
                   <p>With a focus on topics such as global trade, financial technology, sustainable development, and policy.</p>
                 </div>
@@ -55,12 +55,12 @@
                 <img src="@/assets/img/all-images/about/about-img18.png" alt="">
               </div>
               <div class="arrow-btn">
-                <a href="#">
+                <router-link href="#">
                   <div class="content">
                     <h6 class="circle rotateme">Build Success Brand .</h6>
                   </div>
                   <img src="@/assets/img/icons/arrow1.svg" alt="" class="arrow1">
-                </a>
+                </router-link>
               </div>
               <img src="@/assets/img/elements/elements37.png" alt="" class="elements37">
             </div>

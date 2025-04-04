@@ -1,26 +1,16 @@
 <template>
   <div class="homepage5-body homepage7-body">
     <img src="@/assets/img/bg/body-bg1.png" alt="" class="body-bg1" id="body-bg1" />
-    
-    <MainHeader />
-    
-    <main>
-      <HeroSection />
-      <WhyAttend />
-    </main>
+    <AppHeader />
   </div>
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader.vue'
-import HeroSection from '@/components/HeroSection.vue'
-import WhyAttend from '@/components/WhyAttend.vue'
+import AppHeader from '@/components/common/AppHeader.vue'
 
 export default {
   components: {
-    MainHeader,
-    HeroSection,
-    WhyAttend
+    AppHeader
   },
   data() {
     return {
