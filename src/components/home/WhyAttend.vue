@@ -4,40 +4,22 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="about-header-area heading10">
-            <h2 class="text-anime-style-3">Transforming the of Global Economic Landscape</h2>
+            <h2 class="text-anime-style-3">Why Attend</h2>
             <div class="space16"></div>
             <p data-aos="fade-left" data-aos-duration="900">
-              Our mission at Economy Event to drive meaningful dialogue, foster collaboration, spark innovative solutions for sustainable economic.
+              Discover why leaders from around the globe are joining us.
             </p>
             <div class="space32"></div>
 
-            <!-- Box 1 -->
-            <div class="about-auhtor-box" data-aos="fade-left" data-aos-duration="1000">
-              <div class="icons">
-                <img src="/assets/img/icons/about-icon1.svg" alt="" />
+            <div v-for="(point, index) in whyAttendPoints" :key="index">
+              <div class="about-auhtor-box" :data-aos="'fade-left'" :data-aos-duration="1000 + index * 100">
+                <div class="text">
+                  <h4>{{ point.split(':')[0] }}</h4>
+                  <div class="space12"></div>
+                  <p>{{ point.split(':').slice(1).join(':').trim() }}</p>
+                </div>
               </div>
-              <div class="text">
-                <a href="#">ECollaborating for Economic Impact</a>
-                <div class="space12"></div>
-                <p>
-                  This event brings together economists business leaders policymakers, and innovators from around the globe.
-                </p>
-              </div>
-            </div>
-
-            <!-- Box 2 -->
-            <div class="space20"></div>
-            <div class="about-auhtor-box" data-aos="fade-left" data-aos-duration="1100">
-              <div class="icons">
-                <img src="/assets/img/icons/about-icon2.svg" alt="" />
-              </div>
-              <div class="text">
-                <a href="#">Where Ideas Shape the Economy</a>
-                <div class="space12"></div>
-                <p>
-                  With a focus on topics such as global trade, financial technology, sustainable development, and policy.
-                </p>
-              </div>
+              <div v-if="index !== whyAttendPoints.length - 1" class="space20"></div>
             </div>
 
             <div class="space32"></div>
@@ -52,10 +34,10 @@
 
         <div class="col-lg-6">
           <div class="about-all-images">
-            <div class="img1 image-anime reveal">
+            <div class="img1 image-anime">
               <img src="/assets/img/all-images/about/about-img17.png" alt="" />
             </div>
-            <div class="img2 image-anime reveal">
+            <div class="img2 image-anime">
               <img src="/assets/img/all-images/about/about-img18.png" alt="" />
             </div>
           </div>
@@ -65,8 +47,18 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'WhyAttend'
-};
+<script setup>
+import { ref, onMounted } from 'vue'
+import { getHome } from '@/apiService'
+
+const whyAttendPoints = ref([])
+
+onMounted(async () => {
+  try {
+    const res = await getHome()
+    whyAttendPoints.value = res.data.whyAttend?.points || []
+  } catch (error) {
+    console.error('Failed to load Why Attend points:', error)
+  }
+})
 </script>

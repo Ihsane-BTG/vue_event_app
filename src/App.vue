@@ -2,6 +2,10 @@
   <div class="homepage5-body homepage7-body">
     <!-- Background image -->
     <img src="/assets/img/bg/body-bg1.png" alt="" class="body-bg1" id="body-bg1" />
+    <!-- Preloader -->
+    <PreLoader />
+    <!-- Page Progress -->
+    <PageProgress />
     <!-- App Header -->
     <AppHeader />
 
@@ -26,9 +30,13 @@
 import AppHeader from './components/common/AppHeader.vue';
 import AppFooter from './components/common/AppFooter.vue';
 import CountDown from './components/common/CountDown.vue';
+import PreLoader from './components/common/PreLoader.vue';
+import PageProgress from './components/common/PageProgress.vue';
 
 export default {
   components: {
+    PreLoader,
+    PageProgress,
     AppHeader,
     CountDown,
     AppFooter

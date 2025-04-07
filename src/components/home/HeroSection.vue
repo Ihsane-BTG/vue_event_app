@@ -1,5 +1,5 @@
 <template>
-    <div class="hero7-section-area attent1-section-area">
+	<div class="hero7-section-area attent1-section-area">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -8,7 +8,8 @@
 							<div class="col-lg-6 order-lg-2 order-1 text-center text-lg-start">
 								<div class="heading-area sp5">
 									<h1>{{ hero.title }}</h1>
-									<p>{{ hero.tagline }}</p> <p>{{ hero.edition }}</p>
+									<p>{{ hero.tagline }}</p>
+									<p>{{ hero.edition }}</p>
 									<div class="space32"></div>
 									<div class="btn-area1">
 										<a href="#" class="vl-btn5 btn2"><img class="icn-light"
@@ -16,12 +17,13 @@
 											| </a>
 										<a href="#" class="vl-btn5 btn2"><img class="icn-light"
 												src="/assets/img/icons/location1.svg" alt="" /> {{ hero.location }}
-											</a>
+										</a>
 									</div>
 									<div class="btn-area1">
 										<a :href="hero.cta.link" class="vl-btn5 btn2">
-										{{ hero.cta.text }}
-									</a> </div>
+											{{ hero.cta.text }}
+										</a>
+									</div>
 								</div>
 							</div>
 							<div class="col-lg-6 order-lg-1 order-2 text-center">
@@ -46,22 +48,25 @@
 					<div class="timer-btn-area">
 						<div class="timer">
 							<div class="time-box">
-								<span id="days" class="time-value">{{ countdown.daysRemaining }}<span>Days</span></span>
+								<span id="days" class="time-value">{{ format(countdown.daysRemaining) }}<span>Days</span></span>
 								<br>
 							</div>
 							<div class="space14"></div>
 							<div class="time-box">
-								<span id="hours" class="time-value">{{ countdown.hoursRemaining }}<span>Hours</span></span>
+								<span id="hours" class="time-value">{{ format(countdown.hoursRemaining)
+									}}<span>Hours</span></span>
 								<br>
 							</div>
 							<div class="space14"></div>
 							<div class="time-box">
-								<span id="minutes" class="time-value">{{ countdown.minutesRemaining }}<span>Minutes</span></span>
+								<span id="minutes" class="time-value">{{ format(countdown.minutesRemaining)
+									}}<span>Minutes</span></span>
 								<br>
 							</div>
 							<div class="space14"></div>
 							<div class="time-box box2">
-								<span id="seconds" class="time-value">{{ countdown.secondsRemaining }}<span>Seconds</span></span>
+								<span id="seconds" class="time-value">{{ format(countdown.secondsRemaining)
+									}}<span>Seconds</span></span>
 								<br>
 							</div>
 						</div>
@@ -93,97 +98,100 @@
 			</div>
 		</div>
 	</div>
-  </template>
+</template>
 
 <script>
 import { getCountdown } from '@/apiService';
 import { getHome } from '@/apiService';
 
 export default {
-data() {
-	return {
-		countdown: {
-			daysRemaining: 0,
-			hoursRemaining: 0,
-			minutesRemaining: 0,
-			secondsRemaining: 0,
-			targetDate: new Date(),
-		},
-		hero: {
-			title: '',
-			tagline: '',
-			edition: '',
-			date: '',
-			location: '',
-			cta: {
-				text: '',
-				link: '',
+	data() {
+		return {
+			countdown: {
+				daysRemaining: 0,
+				hoursRemaining: 0,
+				minutesRemaining: 0,
+				secondsRemaining: 0,
+				targetDate: new Date(),
 			},
-    },
-	};
-},
-methods: {
-	async fetchHeroData() {
-		try {
-			const response = await getHome(); 
-			const heroData = response.data.hero;
-
-			this.hero.title = heroData.title;
-			this.hero.tagline = heroData.tagline;
-			this.hero.edition = heroData.edition;
-			this.hero.date = heroData.date;
-			this.hero.location = heroData.location;
-			this.hero.cta.text = heroData.cta.text;
-			this.hero.cta.link = heroData.cta.link;
-		} catch (error) {
-			console.error('Error fetching hero data:', error);
-		}
-    },
-	async fetchCountdown() {
-		try {
-			const response = await getCountdown();
-			const countdownData = response.data; 
-			
-			this.countdown.targetDate = new Date(countdownData.targetDate);
-			this.countdown.daysRemaining = countdownData.daysRemaining;
-			this.countdown.hoursRemaining = countdownData.hoursRemaining;
-			this.countdown.minutesRemaining = countdownData.minutesRemaining;
-			this.countdown.secondsRemaining = countdownData.secondsRemaining;
-
-		this.startCountdown();
-		} catch (error) {
-		console.error('Error fetching countdown:', error);
-		}
+			hero: {
+				title: '',
+				tagline: '',
+				edition: '',
+				date: '',
+				location: '',
+				cta: {
+					text: '',
+					link: '',
+				},
+			},
+		};
 	},
-	startCountdown() {
-		var countdownFunction = setInterval(() => {
-			var now = new Date().getTime();
-			var distance = this.countdown.targetDate - now;
-	
-			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-	
-			this.countdown.daysRemaining = days;
-			this.countdown.hoursRemaining = hours;
-			this.countdown.minutesRemaining = minutes;
-			this.countdown.secondsRemaining = seconds;
+	methods: {
+		async fetchHeroData() {
+			try {
+				const response = await getHome();
+				const heroData = response.data.hero;
 
-		if(distance < 0){
-				clearInterval(countdownFunction);
-				this.countdown.daysRemaining = 0;
-				this.countdown.hoursRemaining = 0;
-				this.countdown.minutesRemaining = 0;
-				this.countdown.secondsRemaining = 0;
-				alert("Countdown Ended");
-		}
-		}, 1000);
+				this.hero.title = heroData.title;
+				this.hero.tagline = heroData.tagline;
+				this.hero.edition = heroData.edition;
+				this.hero.date = heroData.date;
+				this.hero.location = heroData.location;
+				this.hero.cta.text = heroData.cta.text;
+				this.hero.cta.link = heroData.cta.link;
+			} catch (error) {
+				console.error('Error fetching hero data:', error);
+			}
+		},
+		format(value) {
+            return String(value).padStart(2, '0');
+        },
+		async fetchCountdown() {
+			try {
+				const response = await getCountdown();
+				const countdownData = response.data;
+
+				this.countdown.targetDate = new Date(countdownData.targetDate);
+				this.countdown.daysRemaining = countdownData.daysRemaining;
+				this.countdown.hoursRemaining = countdownData.hoursRemaining;
+				this.countdown.minutesRemaining = countdownData.minutesRemaining;
+				this.countdown.secondsRemaining = countdownData.secondsRemaining;
+
+				this.startCountdown();
+			} catch (error) {
+				console.error('Error fetching countdown:', error);
+			}
+		},
+		startCountdown() {
+			var countdownFunction = setInterval(() => {
+				var now = new Date().getTime();
+				var distance = this.countdown.targetDate - now;
+
+				var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+				this.countdown.daysRemaining = days;
+				this.countdown.hoursRemaining = hours;
+				this.countdown.minutesRemaining = minutes;
+				this.countdown.secondsRemaining = seconds;
+
+				if (distance < 0) {
+					clearInterval(countdownFunction);
+					this.countdown.daysRemaining = 0;
+					this.countdown.hoursRemaining = 0;
+					this.countdown.minutesRemaining = 0;
+					this.countdown.secondsRemaining = 0;
+					alert("Countdown Ended");
+				}
+			}, 1000);
+		},
 	},
-},
-created() {
-	this.fetchHeroData();
-	this.fetchCountdown();
-},
+	created() {
+		this.fetchHeroData();
+		this.fetchCountdown();
+	},
 };
 </script>

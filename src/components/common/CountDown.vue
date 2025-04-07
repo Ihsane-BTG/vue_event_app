@@ -15,29 +15,29 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="cta-counter-box">
                         <img src="assets/img/elements/elements23.png" alt="" class="elements23 keyframe5" />
-                        <h2><span id="days" class="time-value">{{ countdown.daysRemaining }}<span>DAYS</span></span>
+                        <h2><span id="days" class="time-value">{{ format(countdown.daysRemaining) }}<span>DAYS</span></span>
                         </h2>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="cta-counter-box">
                         <img src="assets/img/elements/elements23.png" alt="" class="elements23 keyframe5" />
-                        <h2><span id="hours" class="time-value">{{ countdown.hoursRemaining }}<span>Hours</span></span>
+                        <h2><span id="hours" class="time-value">{{ format(countdown.hoursRemaining) }}<span>Hours</span></span>
                         </h2>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="cta-counter-box">
                         <img src="assets/img/elements/elements23.png" alt="" class="elements23 keyframe5" />
-                        <h2><span id="minutes" class="time-value">{{ countdown.minutesRemaining
-                                }}<span>Minutes</span></span> </h2>
+                        <h2><span id="minutes" class="time-value">{{ format(countdown.minutesRemaining)
+                        }}<span>Minutes</span></span> </h2>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="cta-counter-box">
                         <img src="assets/img/elements/elements23.png" alt="" class="elements23 keyframe5" />
-                        <h2><span id="seconds" class="time-value">{{ countdown.secondsRemaining
-                                }}<span>Seconds</span></span></h2>
+                        <h2><span id="seconds" class="time-value">{{ format(countdown.secondsRemaining)
+                        }}<span>Seconds</span></span></h2>
                     </div>
                 </div>
             </div>
@@ -70,6 +70,9 @@ export default {
         };
     },
     methods: {
+        format(value) {
+            return String(value).padStart(2, '0');
+        },
         async fetchCountdown() {
             try {
                 const response = await getCountdown();
