@@ -6721,6 +6721,7 @@ homepage1-body .header-area.homepage1 .header-elements .main-menu ul li ul.dropd
   font-weight: var(--ztc-weight-bold);
   line-height: 24px;
   display: inline-block;
+  width: 100%;
   transition: all 0.4s;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
@@ -6770,7 +6771,7 @@ homepage1-body .header-area.homepage1 .header-elements .main-menu ul li ul.dropd
 .attent1-section-area .tab-container .nav-link.link1::before {
   position: absolute;
   content: "";
-  height: 700px;
+  height: 570px;
   width: 10px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.2);

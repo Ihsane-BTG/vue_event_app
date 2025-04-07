@@ -1,29 +1,41 @@
 <template>
   <div class="homepage5-body homepage7-body">
-    <img src="@/assets/img/bg/body-bg1.png" alt="" class="body-bg1" id="body-bg1" />
+    <!-- Background image -->
+    <img src="/assets/img/bg/body-bg1.png" alt="" class="body-bg1" id="body-bg1" />
+    <!-- App Header -->
     <AppHeader />
-    <HeroSection />
+
+    <!-- Main Content Area -->
+    <main>
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </main>
+
+
+    <!-- Countdown Component -->
+    <CountDown />
+    <!-- App Footer -->
     <AppFooter />
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/common/AppHeader.vue';
+import AppHeader from './components/common/AppHeader.vue';
 import AppFooter from './components/common/AppFooter.vue';
-import HeroSection from './components/home/HeroSection.vue';
+import CountDown from './components/common/CountDown.vue';
 
 export default {
   components: {
     AppHeader,
-    AppFooter,
-    HeroSection
+    CountDown,
+    AppFooter
   },
   data() {
     return {
     }
   },
-  mounted() {
-    // Initialize AOS and other plugins here if needed
-  }
 }
 </script>

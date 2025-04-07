@@ -64,13 +64,6 @@ $(".tx-search-close").on("click", function (e) {
   });
 //========== PAGE PROGRESS STARTS ============= // 
 
-//========== VIDEO POPUP STARTS ============= //
-   if ($(".popup-youtube").length > 0) {
-    $(".popup-youtube").magnificPopup({
-    type: "iframe",
-    });
-    }
-//========== VIDEO POPUP ENDS ============= //
 AOS.init;
 AOS.init({disable: 'mobile'});
 
@@ -522,7 +515,7 @@ $('.testimonial-reviews-area').slick({
 
     {
       breakpoint: 600,
-      ettings: {
+      settings: {
       slidesToShow: 2,
       slidesToScroll: 1,
       }
@@ -579,7 +572,7 @@ $('.testimonial-reviews-area2').slick({
 
     {
       breakpoint: 600,
-      ettings: {
+      settings: {
       slidesToShow: 2,
       slidesToScroll: 1,
       }
@@ -621,44 +614,6 @@ $(window).on("load", function (event) {
 
 
 })(jQuery);
-
-//========== TIMER ============= //
- // TIMER //
- 
-function startCountdown(targetDate, daysId, hoursId, minutesId, secondsId) {
-  var countdownFunction = setInterval(function () {
-      var now = new Date().getTime();
-      var distance = targetDate - now;
-
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById(daysId).innerHTML = days + " <span>DAYS</span>";
-      document.getElementById(hoursId).innerHTML = hours + " <span>Hours</span>";
-      document.getElementById(minutesId).innerHTML = minutes + " <span>Minutes</span>";
-      document.getElementById(secondsId).innerHTML = seconds + " <span>Seconds</span>";
-
-      if (distance < 0) {
-          clearInterval(countdownFunction);
-          document.getElementById(daysId).innerHTML = "00";
-          document.getElementById(hoursId).innerHTML = "00";
-          document.getElementById(minutesId).innerHTML = "00";
-          document.getElementById(secondsId).innerHTML = "00";
-          alert("Countdown Ended");
-      }
-  }, 1000);
-}
-
-var targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 119);
-targetDate.setHours(targetDate.getHours() + 22);
-targetDate.setMinutes(targetDate.getMinutes() + 18);
-targetDate.setSeconds(targetDate.getSeconds() + 44);
-
-startCountdown(targetDate, "days", "hours", "minutes", "seconds");
-startCountdown(targetDate, "days1", "hours1", "minutes1", "seconds1");
 
 
 //========== GSAP AREA ============= //
@@ -748,22 +703,22 @@ tl.from(image,1.5,{xPercent:100,scale:1.3,delay:-1.5,ease:Power2.out});})
     
 
 //========== PRELOADER BAR AREA ============= //
-document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(function() {
-      const popup = document.getElementById('popup');
-      popup.style.display = 'flex'; 
-  }, 100); 
-  const closeBtn = document.getElementById('close-popup');
-  closeBtn.addEventListener('click', function() {
-      const popup = document.getElementById('popup');
-      popup.style.display = 'none'; 
-  });
+// document.addEventListener("DOMContentLoaded", function() {
+//   setTimeout(function() {
+//       const popup = document.getElementById('popup');
+//       popup.style.display = 'flex'; 
+//   }, 100); 
+//   const closeBtn = document.getElementById('close-popup');
+//   closeBtn.addEventListener('click', function() {
+//       const popup = document.getElementById('popup');
+//       popup.style.display = 'none'; 
+//   });
 
-  document.querySelector('.no-thanks').addEventListener('click', function() {
-      const popup = document.getElementById('popup');
-      popup.style.display = 'none';
-  });
-});
+//   document.querySelector('.no-thanks').addEventListener('click', function() {
+//       const popup = document.getElementById('popup');
+//       popup.style.display = 'none';
+//   });
+// });
 
 
 // Tabs //
