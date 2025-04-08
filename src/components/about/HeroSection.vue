@@ -1,5 +1,5 @@
 <template>
-	<div class="attent1-section-area choose-section-area">
+	<div class="attent1-section-area choose-section-area about7-section-area event5-section-area">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -7,13 +7,14 @@
 						<div class="row align-items-center">
 							<!-- Tab Content -->
 							<div class="col-lg-8 order-lg-1 order-3">
-								<div class="tab-content" id="tab-content">
+								<div class="tab-content about-header-area" id="tab-content">
 									<!-- Tab 1: Our Mission -->
 									<div class="tab-pane fade show active" id="tab1" role="tabpanel">
-										<div class="choose-widget-boxarea">
+										<div class="choose-widget-boxarea about-auhtor-box">
 											<div class="space24"></div>
-											<div class="content-area">
-												<h3>Our Mission</h3>
+											<div class="content-area text">
+												<h4>Our Mission</h4>
+												<div class="space18"></div>
 												<p>{{ about.mission }}</p>
 												<div class="space24"></div>
 											</div>
@@ -21,27 +22,29 @@
 									</div>
 									<!-- Tab 2: Who We Are -->
 									<div class="tab-pane fade" id="tab2" role="tabpanel">
-										<div class="choose-widget-boxarea">
+										<div class="choose-widget-boxarea about-auhtor-box">
 											<div class="space24"></div>
-											<div class="content-area">
-												<h3>Who We Are</h3>
+											<div class="content-area text">
+												<h4>Who We Are</h4>
+												<div class="space18"></div>
 												<p>{{ about.whoWeAre.description }}</p>
-												<div class="space16"></div>
-												<!-- <a :href="about.whoWeAre.link.url" class="vl-btn7">{{
-													about.whoWeAre.link.text }}</a> -->
+												<div class="space16 btn-area1 text-center"></div>
+												<a :href="about.whoWeAre.link.url" class="vl-btn5 btn2">
+													<span class="demo">{{about.whoWeAre.link.text }}</span></a>
 												<div class="space24"></div>
 											</div>
 										</div>
 									</div>
 									<!-- Tab 3: Segments -->
 									<div class="tab-pane fade" id="tab3" role="tabpanel">
-										<div class="choose-widget-boxarea">
+										<div class="choose-widget-boxarea about-auhtor-box">
 											<div class="space24"></div>
-											<div class="content-area">
-												<h3>Event Segments</h3>
+											<div class="content-area text">
+												<h4>Event Segments</h4>
+												<div class="space18"></div>
 												<div v-for="(segment, index) in about.segments" :key="index"
 													class="segment">
-													<h4>{{ segment.title }}</h4>
+													<h5>{{ segment.title }}</h5>
 													<p>{{ segment.description }}</p>
 													<p v-if="segment.format"><strong>Format:</strong> {{
 														segment.format }}</p>
@@ -57,10 +60,11 @@
 									</div>
 									<!-- Tab 4: Code of Conduct -->
 									<div class="tab-pane fade" id="tab4" role="tabpanel">
-										<div class="choose-widget-boxarea">
+										<div class="choose-widget-boxarea about-auhtor-box">
 											<div class="space24"></div>
-											<div class="content-area">
-												<h3>Code of Conduct</h3>
+											<div class="content-area text">
+												<h4>Code of Conduct</h4>
+												<div class="space18"></div>
 												<p>{{ about.codeOfConduct }}</p>
 												<div class="space24"></div>
 											</div>

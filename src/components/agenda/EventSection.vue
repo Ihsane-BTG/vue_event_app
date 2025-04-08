@@ -47,10 +47,13 @@
                                                         </ul>
                                                         <div class="space20"></div>
                                                         <a class="head">{{ event.title }}</a>
-                                                        <div v-if="event.sessions && event.sessions.length > 0"
-                                                            class="sessions">
-                                                            <strong>Sessions:</strong>
-                                                            <p>{{ event.sessions.join(', ') }}</p>
+                                                        <div class="author-area" v-if="event.sessions && event.sessions.length > 0">
+                                                            <div class="autho-name-area">
+                                                                <div class="text">
+                                                                    <p><strong>Sessions:</strong></p>
+                                                                    <p>{{ event.sessions.join(', ') }}</p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -77,7 +80,8 @@
                 <div class="col-lg-12 m-auto">
                     <div class="space60"></div>
                     <div class="btn-area1 text-center">
-                        <a :href="agenda.overview.downloadLink" class="vl-btn5 btn2" download><span class="demo">Download Full Agenda</span></a>
+                        <a :href="agenda.overview.downloadLink" class="vl-btn5 btn2" download><span
+                                class="demo">Download Full Agenda</span></a>
                     </div>
                 </div>
             </div>

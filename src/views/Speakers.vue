@@ -11,7 +11,7 @@
 <script>
 import InnerPageHeader from '@/components/common/InnerPageHeader.vue';
 import MarqueeContainer from '@/components/common/MarqueeContainer.vue';
-import TeamSection from '@/speakers/TeamSection.vue';
+import TeamSection from '@/components/speakers/TeamSection.vue';
 
 
 

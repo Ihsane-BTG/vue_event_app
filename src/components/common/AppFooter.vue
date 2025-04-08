@@ -1,13 +1,13 @@
 <template>
-    <div class="footer7-sertion-area">
+	<div class="footer7-sertion-area">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 col-md-12">
 					<div class="footer-logo-area">
 						<img src="/assets/img/logo/logo2.png" alt="">
 						<div class="space16"></div>
-						<p>We are committed to creating a platform where business leaders, innovators, and professionals
-							can come together to exchange ideas</p>
+						<p>{{ hero.title }}</p>
+						<p>{{ hero.tagline }}</p>
 						<div class="space24"></div>
 						<ul>
 							<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
@@ -34,8 +34,8 @@
 						<ul>
 							<li><a href="tel:+11234567890"><img src="/assets/img/icons/phn1.svg" alt="">+1 123 456
 									7890</a></li>
-							<li><a href="#"><img src="/assets/img/icons/location1.svg" alt="">Secret Location In The
-									UK</a></li>
+							<li><a href="#"><img src="/assets/img/icons/location1.svg" alt="">{{ hero.location }}
+								</a></li>
 							<li><a href="#"> <img src="/assets/img/icons/world1.svg" alt="">eventifyevent.com</a></li>
 						</ul>
 					</div>
@@ -52,3 +52,35 @@
 		</div>
 	</div>
 </template>
+<script>
+import { getHome } from '@/apiService';
+
+export default {
+	data() {
+		return {
+			hero: {
+				title: '',
+				tagline: '',
+				location: ''
+			},
+		};
+	},
+	methods: {
+		async fetchHeroData() {
+			try {
+				const response = await getHome();
+				const heroData = response.data.hero;
+
+				this.hero.title = heroData.title;
+				this.hero.tagline = heroData.tagline;
+				this.hero.location = heroData.location;
+			} catch (error) {
+				console.error('Error fetching data:', error);
+			}
+		}
+	},
+	created() {
+		this.fetchHeroData();
+	},
+};
+</script>

@@ -10,7 +10,7 @@
 									<h1>{{ hero.title }}</h1>
 									<p>{{ hero.tagline }}</p>
 									<p>{{ hero.edition }}</p>
-									<div class="space32"></div>
+									<div class="space16"></div>
 									<div class="btn-area1">
 										<a href="#" class="vl-btn5 btn2"><img class="icn-light"
 												src="/assets/img/icons/clock1.svg" alt="" /> {{ hero.date }}
@@ -19,10 +19,9 @@
 												src="/assets/img/icons/location1.svg" alt="" /> {{ hero.location }}
 										</a>
 									</div>
+									<div class="space16"></div>
 									<div class="btn-area1">
-										<a :href="hero.cta.link" class="vl-btn5 btn2">
-											{{ hero.cta.text }}
-										</a>
+										<a :href="hero.cta.link" class="vl-btn7">{{ hero.cta.text }}</a>
 									</div>
 								</div>
 							</div>
@@ -48,52 +47,30 @@
 					<div class="timer-btn-area">
 						<div class="timer">
 							<div class="time-box">
-								<span id="days" class="time-value">{{ format(countdown.daysRemaining) }}<span>Days</span></span>
+								<span id="days" class="time-value">{{ format(countdown.daysRemaining)
+									}}<span>Days</span></span>
 								<br>
 							</div>
 							<div class="space14"></div>
 							<div class="time-box">
 								<span id="hours" class="time-value">{{ format(countdown.hoursRemaining)
-									}}<span>Hours</span></span>
+								}}<span>Hours</span></span>
 								<br>
 							</div>
 							<div class="space14"></div>
 							<div class="time-box">
 								<span id="minutes" class="time-value">{{ format(countdown.minutesRemaining)
-									}}<span>Minutes</span></span>
+								}}<span>Minutes</span></span>
 								<br>
 							</div>
 							<div class="space14"></div>
 							<div class="time-box box2">
 								<span id="seconds" class="time-value">{{ format(countdown.secondsRemaining)
-									}}<span>Seconds</span></span>
+								}}<span>Seconds</span></span>
 								<br>
 							</div>
 						</div>
 					</div>
-					<!-- <div class="timer-btn-area d-none">
-						<div class="timer">
-							<div class="time-box">
-								<span id="days" class="time-value">{{ countdown.daysRemaining }}<span>Days</span></span>
-								<br>
-							</div>
-							<div class="space14"></div>
-							<div class="time-box">
-								<span id="hours" class="time-value">{{ countdown.hoursRemaining }}<span>Hours</span></span>
-								<br>
-							</div>
-							<div class="space14"></div>
-							<div class="time-box">
-								<span id="minutes" class="time-value">{{ countdown.minutesRemaining }}<span>Minutes</span></span>
-								<br>
-							</div>
-							<div class="space14"></div>
-							<div class="time-box box2">
-								<span id="seconds" class="time-value">{{ countdown.secondsRemaining }}<span>Seconds</span></span>
-								<br>
-							</div>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -145,8 +122,8 @@ export default {
 			}
 		},
 		format(value) {
-            return String(value).padStart(2, '0');
-        },
+			return String(value).padStart(2, '0');
+		},
 		async fetchCountdown() {
 			try {
 				const response = await getCountdown();
