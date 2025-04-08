@@ -13,7 +13,7 @@
 									<div class="space16"></div>
 									<div class="btn-area1">
 										<a href="#" class="vl-btn5 btn2"><img class="icn-light"
-												src="/assets/img/icons/clock1.svg" alt="" /> {{ hero.date }}
+												src="/assets/img/icons/calender1.svg" alt="" /> {{ hero.date }}
 											| </a>
 										<a href="#" class="vl-btn5 btn2"><img class="icn-light"
 												src="/assets/img/icons/location1.svg" alt="" /> {{ hero.location }}
